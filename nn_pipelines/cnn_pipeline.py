@@ -99,9 +99,9 @@ input_size = train_features.shape[1]
 num_classes = train_labels.shape[1]
 print(input_size, num_classes)
 model = CNN(input_size=train_features.shape[1], hidden_size=32, num_layers=5, num_classes=train_labels.shape[1]).to(device)
-model_path = "./cnn_v2_state.pth"  # Provide the path to your .pth file
+model_path = "./cnn_v4_state.pth"  # Provide the path to your .pth file
 model.load_state_dict(torch.load(model_path))
-criterion = nn.BCELoss()
+criterion = nn.BCEWithLogitsLoss()
 optimizer = optim.SGD(model.parameters(), lr=0.001)
 num_epochs = 40
 
